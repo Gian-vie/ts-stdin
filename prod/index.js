@@ -41,8 +41,6 @@ function generateError(message, code) {
     throw { message: message, errorCode: code };
     //por mais q apresente como void, é um never, ja q no console.log não tem retorno algum
 }
-//retorna esse codigo de erro
-generateError('the application crashed', 500);
 const user1 = {
     firstname: "gian",
     age: 19
@@ -60,3 +58,50 @@ function userInput(input1, input2) {
     return result;
 }
 //LITERAL type
+// define um valor em especifico
+//unindo ao union, pode selecionar valores q serão aceitos
+let productPrice;
+let productName;
+productPrice = 10;
+const e1 = {
+    firstname: "gian",
+    age: 18,
+    id: 777,
+    role: "Admin"
+};
+///////////////////////////////////////////////////////////
+//EXERCISES
+// Day 3 - Exercise 1
+let pi = 3.14159;
+let tau = pi * 2;
+console.log(`${tau} is ${pi} times two.`);
+// Day 3 - Exercise 2
+let pie;
+pie = "blueberry";
+// console.log(`i like ${pie}`)
+// Day 3 - Exercise 3
+let isDouglas = true;
+// console.log(`${isDouglas ? 'Oh, Hi Douglas' : 'Who are you?'}`)
+// Day 3 - Exercise 4
+const integer = 6;
+const float = 6.66;
+const hex = 0xf00d;
+const binary = 0b1010011010;
+const octal = 0o744;
+const negZero = -0;
+const actuallyNumber = NaN;
+const largestNumber = Number.MAX_VALUE;
+const mostBiglyNumber = Infinity;
+const members = [
+    integer,
+    float,
+    hex,
+    binary,
+    octal,
+    negZero,
+    actuallyNumber,
+    largestNumber,
+    mostBiglyNumber
+];
+members[0] = 12345;
+console.log(members);
