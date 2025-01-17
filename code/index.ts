@@ -92,3 +92,25 @@ let productName: "s" | "m" | "l"
 
 productPrice = 10
 
+
+// intersection
+
+type Users1 = {
+    firstname: string
+    age: number
+}
+
+type JobRole = {
+    id: number
+    role: string
+}
+
+type employee = Users1 & JobRole
+
+const e1: employee = {
+    firstname:"gian",
+    age: 18,
+    id: 777,
+    role: "Admin"
+}
+
