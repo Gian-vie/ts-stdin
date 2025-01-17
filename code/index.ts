@@ -56,3 +56,39 @@ function generateError(message: string, code: number){
 
 //retorna esse codigo de erro
 generateError('the application crashed', 500)
+
+
+
+//ALIAS type
+
+type Users = {
+    firstname: string,
+    age: number
+}
+
+const user1: Users = {
+    firstname: "gian",
+    age: 19
+}
+
+//UNION type
+//pode armazenar mais de um tipo
+function userInput(input1: number | string, input2: number | string){
+    let result
+    if(typeof input1 === "number" && typeof input2 === "number"){
+        result = input1 + input2
+    } else {
+        result = input1.toString() + input2.toString()
+    }
+    return result
+}
+
+
+//LITERAL type
+// define um valor em especifico
+//unindo ao union, pode selecionar valores q serão aceitos
+let productPrice: 10 | 20 | 30
+let productName: "s" | "m" | "l"
+
+productPrice = 10
+
