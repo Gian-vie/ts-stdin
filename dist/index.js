@@ -1,18 +1,6 @@
 "use strict";
-// tipos de dados
-/*
-any
-unknown
-tuple
-never
-enum
-*/
-// any remove a tipagem do typescript
-//arrays
 let values = [10, 20, 30, 40];
-// tuple limita os valores em uma array
 let items = ["apple", 3, true];
-//enum 
 var Role;
 (function (Role) {
     Role[Role["admin"] = 1] = "admin";
@@ -24,29 +12,20 @@ const user = {
     age: 21,
     role: Role.admin
 };
-// function, se não tiver um return o tipo vai ser "void"
-// unknown como o any, n tem tipo definido, porém pode ser validado depois
 let itemImput;
 let itemName;
-//nenhum vai dar erro
 itemImput = 20;
 itemImput = "apple";
-// pode ser validado
 if (itemImput === "string") {
     itemName = itemImput;
 }
-//melhor para imputs q vc n sabe oq vai ser
-//NEVER retorna nada
 function generateError(message, code) {
     throw { message: message, errorCode: code };
-    //por mais q apresente como void, é um never, ja q no console.log não tem retorno algum
 }
 const user1 = {
     firstname: "gian",
     age: 19
 };
-//UNION type
-//pode armazenar mais de um tipo
 function userInput(input1, input2) {
     let result;
     if (typeof input1 === "number" && typeof input2 === "number") {
@@ -57,9 +36,6 @@ function userInput(input1, input2) {
     }
     return result;
 }
-//LITERAL type
-// define um valor em especifico
-//unindo ao union, pode selecionar valores q serão aceitos
 let productPrice;
 let productName;
 productPrice = 10;
@@ -69,20 +45,12 @@ const e1 = {
     id: 777,
     role: "Admin"
 };
-///////////////////////////////////////////////////////////
-//EXERCISES
-// Day 3 - Exercise 1
 let pi = 3.14159;
 let tau = pi * 2;
 console.log(`${tau} is ${pi} times two.`);
-// Day 3 - Exercise 2
 let pie;
 pie = "blueberry";
-// console.log(`i like ${pie}`)
-// Day 3 - Exercise 3
 let isDouglas = true;
-// console.log(`${isDouglas ? 'Oh, Hi Douglas' : 'Who are you?'}`)
-// Day 3 - Exercise 4
 const integer = 6;
 const float = 6.66;
 const hex = 0xf00d;
@@ -104,4 +72,8 @@ const members = [
     mostBiglyNumber
 ];
 members[0] = 12345;
-console.log(members);
+const sequence = Array.from(Array(10).keys());
+const animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
+const stringsAndNumbers = [1, 'one', 2, 'two', 3, 'three'];
+const allMyArrays = [sequence, animals, stringsAndNumbers];
+console.log(allMyArrays);
