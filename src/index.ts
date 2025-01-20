@@ -177,11 +177,74 @@ console.log(allMyArrays);
 
 //OOPs
 
+
+//class
 class UsersBank {
+    name: string
+    private balance: number = 0 // não poderá ser alterado fora da classe
+
     constructor(n: string, b: number){
         this.name = n
         this.balance = b
     }
-    name: string
-    balance: number
+
+    addMoney(amount: number){
+        this.balance+= amount
+    }
+
 }
+
+//interface
+interface Item {
+    name: string
+    price:number
+
+    itemPurchased(message: string): void
+
+}
+
+let product1: Item
+
+product1 = {
+    name: "apple",
+    price: 2,
+    itemPurchased(message: string){
+        console.log(message + " " + this.name)
+    }
+}
+
+product1.itemPurchased("you just bought a")
+
+// exercises
+
+// Day 5 - Exercise 1
+
+
+interface cart {
+    id: number,
+    title: string, 
+    variantId?: number //a "?" antes dos ":" torna o item opcional
+}
+
+
+function addToCart(item: cart) {
+    console.log(`Adding "${item.title}" to cart.`);
+  }
+
+  addToCart({id: 1, title: 'shoes'});
+
+
+  // Day 5 - Exercise 2
+// atribuindo interface a classe
+interface NameAge {
+    name: string
+    age: number
+}
+
+class Person implements NameAge{// usa o IMPLEMENT
+    constructor(public name: string, public age: number) {}
+  }
+
+  const jane = new Person('Jane', 31);
+
+  console.log(`${jane.name} is ${jane.age} years old.`);
