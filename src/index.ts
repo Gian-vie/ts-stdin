@@ -174,3 +174,14 @@ const stringsAndNumbers: (number | string)[] = [1, 'one', 2, 'two', 3, 'three'];
 const allMyArrays: (number | string)[][] = [sequence, animals, stringsAndNumbers];
 
 console.log(allMyArrays);
+
+//OOPs
+
+class UsersBank {
+    constructor(n: string, b: number){
+        this.name = n
+        this.balance = b
+    }
+    name: string
+    balance: number
+}
