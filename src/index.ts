@@ -342,3 +342,57 @@ class Staff extends Person1 {
         return "Hi " + super.greet
     }
 }
+
+
+//exercises
+
+// Day 7 - Exercise 1
+
+interface User7 {
+    name: string;
+    age: number;
+    occupation: string;
+}
+
+interface Admin7 {
+    name: string;
+    age: number;
+    role: string;
+}
+
+type Person2 = User7 | Admin7;
+
+const persons: Person2[] = [
+    {
+        name: 'Max Mustermann',
+        age: 25,
+        occupation: 'Chimney sweep'
+    },
+    {
+        name: 'Jane Doe',
+        age: 32,
+        role: 'Administrator'
+    },
+    {
+        name: 'Kate Müller',
+        age: 23,
+        occupation: 'Astronaut.'
+    },
+    {
+        name: 'Bruce Willis',
+        age: 64,
+        role: 'World saver.'
+    }
+];
+
+function logPerson(person: Person2) {
+    let additionalInformation: string;
+    if ("role" in person) {
+        additionalInformation = person.role;
+    } else {
+        additionalInformation = person.occupation;
+    }
+    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
+}
+
+persons.forEach(logPerson);

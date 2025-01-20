@@ -138,3 +138,56 @@ class HotelRoom {
 let room = new HotelRoom();
 room.A201 = "Andre";
 room.B403 = "pedro";
+class Person1 {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    get greet() {
+        return this.firstName + " " + this.lastName;
+    }
+}
+class Client extends Person1 {
+    get greet() {
+        return "Dear " + super.greet;
+    }
+}
+class Staff extends Person1 {
+    get greet() {
+        return "Hi " + super.greet;
+    }
+}
+const persons = [
+    {
+        name: 'Max Mustermann',
+        age: 25,
+        occupation: 'Chimney sweep'
+    },
+    {
+        name: 'Jane Doe',
+        age: 32,
+        role: 'Administrator'
+    },
+    {
+        name: 'Kate Müller',
+        age: 23,
+        occupation: 'Astronaut.'
+    },
+    {
+        name: 'Bruce Willis',
+        age: 64,
+        role: 'World saver.'
+    }
+];
+function logPerson(person) {
+    let additionalInformation;
+    if ("role" in person) {
+        additionalInformation = person.role;
+    }
+    else {
+        additionalInformation = person.occupation;
+    }
+    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
+}
+persons.forEach(logPerson);
