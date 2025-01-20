@@ -265,7 +265,7 @@ console.log(mc.greet('show'));
 // Day 5 - Exercise 4
 // redução de codigo
 class Employee {
-    constructor(public title: string, public salary: number) {}
+    constructor(public title: string, public salary: number) { }
     // title: string;
     // salary: number;
     // constructor(title: string, salary: number) {
@@ -288,7 +288,7 @@ interface UserSchema {
 }
 
 class UserEXE implements UserSchema {
-    constructor(public name: string, readonly id: number) {}
+    constructor(public name: string, readonly id: number) { }
 }
 
 const userEXE = new UserEXE('Dog', 1)
@@ -299,3 +299,46 @@ userEXE.name = 'Harold' // pode mudar
 // userEXE.id = 5 // nao pode mudar
 
 console.log(`User:`, user)
+
+/*
+quando usar readonly e o Private
+o private n permite qualquer acesso ou alterar fora da classe
+o readonly permite apenas acessar as não alterar ele
+*/
+
+
+// index signatures 
+
+class HotelRoom {
+    [roomNumber: string]: string
+
+}
+
+let room = new HotelRoom()
+
+room.A201 = "Andre"
+room.B403 = "pedro"
+
+
+// Overrride
+
+class Person1 {
+    constructor(public firstName: string, public lastName: string, public age: number) { }
+
+    get greet() {
+        return this.firstName + " " + this.lastName
+    }
+}
+
+
+class Client extends Person1 {
+    override get greet() {
+        return "Dear " + super.greet
+    }
+}
+
+class Staff extends Person1 {
+    override get greet() {
+        return "Hi " + super.greet
+    }
+}

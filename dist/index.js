@@ -77,3 +77,64 @@ const animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
 const stringsAndNumbers = [1, 'one', 2, 'two', 3, 'three'];
 const allMyArrays = [sequence, animals, stringsAndNumbers];
 console.log(allMyArrays);
+class UsersBank {
+    constructor(n, b) {
+        this.balance = 0;
+        this.name = n;
+        this.balance = b;
+    }
+    addMoney(amount) {
+        this.balance += amount;
+    }
+}
+let product1;
+product1 = {
+    name: "apple",
+    price: 2,
+    itemPurchased(message) {
+        console.log(message + " " + this.name);
+    }
+};
+product1.itemPurchased("you just bought a");
+function addToCart(item) {
+    console.log(`Adding "${item.title}" to cart.`);
+}
+addToCart({ id: 1, title: 'shoes' });
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+const jane = new Person('Jane', 31);
+console.log(`${jane.name} is ${jane.age} years old.`);
+class MC {
+    greet(event = 'party') {
+        return `Welcome to the ${event}`;
+    }
+}
+const mc = new MC();
+console.log(mc.greet('show'));
+class Employee {
+    constructor(title, salary) {
+        this.title = title;
+        this.salary = salary;
+    }
+}
+const employee = new Employee('Engineer', 100000);
+console.log(`The new employee's title is ${employee.title} and they earn $ ${employee.salary}.`);
+class UserEXE {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+const userEXE = new UserEXE('Dog', 1);
+console.log(userEXE.id);
+userEXE.name = 'Harold';
+console.log(`User:`, user);
+class HotelRoom {
+}
+let room = new HotelRoom();
+room.A201 = "Andre";
+room.B403 = "pedro";
