@@ -22,7 +22,7 @@ let items: [string, number, boolean] = ["apple", 3, true]
 
 //enum 
 
-enum Role {admin = 1, read = 2, backup = 3}
+enum Role { admin = 1, read = 2, backup = 3 }
 
 const user = {
     firstName: "Gian",
@@ -42,15 +42,15 @@ itemImput = 20
 itemImput = "apple"
 
 // pode ser validado
-if(itemImput === "string"){
+if (itemImput === "string") {
     itemName = itemImput
 }
 //melhor para imputs q vc n sabe oq vai ser
 
 //NEVER retorna nada
 
-function generateError(message: string, code: number){
-    throw {message: message, errorCode:code }
+function generateError(message: string, code: number) {
+    throw { message: message, errorCode: code }
     //por mais q apresente como void, é um never, ja q no console.log não tem retorno algum
 }
 
@@ -73,9 +73,9 @@ const user1: Users = {
 
 //UNION type
 //pode armazenar mais de um tipo
-function userInput(input1: number | string, input2: number | string){
+function userInput(input1: number | string, input2: number | string) {
     let result
-    if(typeof input1 === "number" && typeof input2 === "number"){
+    if (typeof input1 === "number" && typeof input2 === "number") {
         result = input1 + input2
     } else {
         result = input1.toString() + input2.toString()
@@ -108,7 +108,7 @@ type JobRole = {
 type employee = Users1 & JobRole
 
 const e1: employee = {
-    firstname:"gian",
+    firstname: "gian",
     age: 18,
     id: 777,
     role: "Admin"
@@ -151,15 +151,15 @@ const largestNumber: number = Number.MAX_VALUE;
 const mostBiglyNumber: number = Infinity;
 
 const members: number[] = [
-  integer,
-  float,
-  hex,
-  binary,
-  octal,
-  negZero,
-  actuallyNumber,
-  largestNumber,
-  mostBiglyNumber
+    integer,
+    float,
+    hex,
+    binary,
+    octal,
+    negZero,
+    actuallyNumber,
+    largestNumber,
+    mostBiglyNumber
 ];
 
 members[0] = 12345;
@@ -183,13 +183,13 @@ class UsersBank {
     name: string
     private balance: number = 0 // não poderá ser alterado fora da classe
 
-    constructor(n: string, b: number){
+    constructor(n: string, b: number) {
         this.name = n
         this.balance = b
     }
 
-    addMoney(amount: number){
-        this.balance+= amount
+    addMoney(amount: number) {
+        this.balance += amount
     }
 
 }
@@ -197,7 +197,7 @@ class UsersBank {
 //interface
 interface Item {
     name: string
-    price:number
+    price: number
 
     itemPurchased(message: string): void
 
@@ -208,7 +208,7 @@ let product1: Item
 product1 = {
     name: "apple",
     price: 2,
-    itemPurchased(message: string){
+    itemPurchased(message: string) {
         console.log(message + " " + this.name)
     }
 }
@@ -222,29 +222,80 @@ product1.itemPurchased("you just bought a")
 
 interface cart {
     id: number,
-    title: string, 
+    title: string,
     variantId?: number //a "?" antes dos ":" torna o item opcional
 }
 
 
 function addToCart(item: cart) {
     console.log(`Adding "${item.title}" to cart.`);
-  }
+}
 
-  addToCart({id: 1, title: 'shoes'});
+addToCart({ id: 1, title: 'shoes' });
 
 
-  // Day 5 - Exercise 2
+// Day 5 - Exercise 2
 // atribuindo interface a classe
 interface NameAge {
     name: string
     age: number
 }
 
-class Person implements NameAge{// usa o IMPLEMENT
-    constructor(public name: string, public age: number) {}
-  }
+class Person implements NameAge {// usa o IMPLEMENT
+    constructor(public name: string, public age: number) { }
+}
 
-  const jane = new Person('Jane', 31);
+const jane = new Person('Jane', 31);
 
-  console.log(`${jane.name} is ${jane.age} years old.`);
+console.log(`${jane.name} is ${jane.age} years old.`);
+
+
+// Day 5 - Exercise 3
+
+class MC {
+    greet(event: string = 'party'): string {
+        return `Welcome to the ${event}`;
+    }
+}
+
+const mc = new MC();
+console.log(mc.greet('show'));
+
+
+// Day 5 - Exercise 4
+// redução de codigo
+class Employee {
+    constructor(public title: string, public salary: number) {}
+    // title: string;
+    // salary: number;
+    // constructor(title: string, salary: number) {
+    //   this.title = title;
+    //   this.salary = salary;
+    // }
+}
+
+const employee = new Employee('Engineer', 100000);
+
+console.log(`The new employee's title is ${employee.title} and they earn $ ${employee.salary}.`);
+
+
+
+// Day 5 - Exercise 5
+
+interface UserSchema {
+    id: number
+    name: string
+}
+
+class UserEXE implements UserSchema {
+    constructor(public name: string, readonly id: number) {}
+}
+
+const userEXE = new UserEXE('Dog', 1)
+
+console.log(userEXE.id)
+
+userEXE.name = 'Harold' // pode mudar
+// userEXE.id = 5 // nao pode mudar
+
+console.log(`User:`, user)
